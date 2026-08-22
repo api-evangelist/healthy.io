@@ -1,17 +1,39 @@
 aid: healthy.io
 name: Healthy.io
-description: 'Healthy.io is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Healthy.io is a digital-health company that turns an ordinary smartphone camera into a
+  clinical-grade measurement device, using colorimetric analysis, computer vision and machine
+  learning trained on more than a million tagged color-spectrum images. Its Minuteful product
+  line covers home urinalysis for chronic kidney disease (Minuteful Kidney, FDA 510(k) cleared
+  and CE marked), urinary tract infection testing (Minuteful UTI), a ten-parameter urinalysis
+  panel (Minuteful 10), and digitized chronic wound assessment (Minuteful for Wound). The
+  company sells to health systems, provider groups and payers - including Medicare Advantage
+  and nonprofit health plans - rather than to developers, and states that its technology
+  integrates into most EMRs via SMART on FHIR. Healthy.io operates from Boston, London and
+  Tel Aviv, and publishes a detailed public trust center covering security, privacy,
+  availability and compliance, including a coordinated vulnerability disclosure policy.
 url: https://raw.githubusercontent.com/api-evangelist/healthy.io/refs/heads/main/apis.yml
+image: https://www.datocms-assets.com/38808/1614769561-homepage-thumbnail-min.jpg
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-22'
 modified: '2026-08-22'
 tags:
 - Company
+- Health
+- Healthcare
+- Digital Health
+- Medical Devices
+- Diagnostics
+- Urinalysis
+- Kidney Care
+- Wound Care
+- Computer Vision
+- Remote Patient Monitoring
+- Telehealth
+- SMART on FHIR
+- HIPAA
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +41,64 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/healthy.io-domain-security.yml
 - type: Website
+  url: https://healthy.io/
+- type: About
+  url: https://healthy.io/about-us/
+- type: Support
+  url: https://healthy.io/contact-us/
+- type: GitHubOrganization
+  url: https://github.com/HealthyIO
+- type: TermsOfService
+  url: https://healthy.io/terms-of-use/
+- type: PrivacyPolicy
+  url: https://healthy.io/privacy-policy/
+- type: TrustCenter
+  url: https://healthy.io/trust-center/
+- type: Compliance
+  url: https://healthy.io/trust-center/compliance/certifications
+- type: Security
+  url: https://healthy.io/trust-center/security/reporting-suspected-vulnerabilities
+- type: Careers
+  url: https://healthy.io/careers/
+- type: Patents
+  url: https://healthy.io/patents/
+- type: SecondaryMarketListing
   url: https://www.hiive.com/securities/healthy.io-stock
+- type: VulnerabilityDisclosure
+  url: security/healthy.io-vulnerability-disclosure.yml
+- type: Conformance
+  url: conformance/healthy.io-conformance.yml
+- type: Packages
+  url: packages/healthy.io-packages.yml
+- type: Lifecycle
+  url: lifecycle/healthy.io-lifecycle.yml
+- type: Plans
+  url: plans/healthy.io-plans-pricing.yml
+- type: LLMsTxt
+  url: llms/healthy.io-llms.txt
+x-enrichment:
+  date: '2026-08-22'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: partner-login
+  detail: >-
+    Healthy.io runs a documentation host and a status host, but both docs.healthy.io and
+    status.healthy.io 302-redirect every path to a healthyio.cloudflareaccess.com SSO login,
+    so the EMR/SMART-on-FHIR integration surface the homepage advertises cannot be read,
+    parsed or evaluated by anyone without a Healthy.io identity.
+  evidence:
+  - url: https://docs.healthy.io/
+    status: 302
+  - url: https://status.healthy.io/
+    status: 302
+  - url: https://healthy.io/.well-known/smart-configuration
+    status: 404
+  - url: https://healthy.io/developers
+    status: 404
+  checked: '2026-08-22'

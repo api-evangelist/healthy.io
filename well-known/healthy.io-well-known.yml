@@ -1,0 +1,147 @@
+generated: '2026-08-22'
+method: probed
+source: live HTTP probes of every Healthy.io host found in apis.yml and via certificate transparency
+hit_count: 0
+note: >-
+  NOTHING IS SERVED. Every /.well-known/ path probed on every Healthy.io host returned 404 with
+  the site's standard HTML 404 body. No document was fetched and no file was saved, so this
+  manifest records a verified ABSENCE and NO WellKnown or SecurityTxt pointer is emitted in
+  apis.yml. Note this is a clean absence, not a catch-all: each host returns a genuine 404
+  status code (see soft_404_control below), so these are trustworthy negatives.
+hosts:
+- host: https://healthy.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /.well-known/smart-configuration
+    status: 404
+    file: null
+  soft_404_control:
+    path: /.well-known/ae-control-<random>
+    status: 404
+    bytes: 33093
+    verdict: >-
+      genuine 404 - the host does not answer 200 for unknown paths, so the negatives above are
+      real, not a catch-all.
+- host: https://direct.healthy.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /.well-known/smart-configuration
+    status: 404
+    file: null
+  soft_404_control:
+    path: /.well-known/ae-control-<random>
+    status: 404
+    bytes: 1245
+    verdict: genuine 404
+- host: https://minuteful.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  - path: /.well-known/smart-configuration
+    status: 404
+    file: null
+  soft_404_control:
+    path: /.well-known/ae-control-<random>
+    status: 404
+    bytes: 48702
+    verdict: genuine 404
+- host: https://research.healthy.io
+  documents: []
+  soft_404_control:
+    path: /zzz-api-evangelist-control-<random>
+    status: 200
+    bytes: 13828
+    verdict: >-
+      SPA CATCH-ALL - this Firebase-hosted host answers HTTP 200 with the same 13,828-byte
+      HTML shell for EVERY path, including /openapi.json, /graphql and every /.well-known/*
+      path. NO document is recorded from this host and no pointer is emitted. This is the
+      dominant false-positive shape in the pipeline and it is explicitly rejected here.
+- host: https://docs.healthy.io
+  documents: []
+  gated: true
+  gate: Cloudflare Access
+  soft_404_control:
+    path: /.well-known/agent-card.json
+    status: 302
+    verdict: >-
+      Every path on this host 302-redirects to healthyio.cloudflareaccess.com SSO login.
+      Nothing is publicly readable; no document can be recorded.
+x-evidence:
+  fetched: '2026-08-22'
+  hosts_discovered_via: >-
+    apis.yml common[] plus certificate-transparency enumeration (api.certspotter.com,
+    76 names under healthy.io; the remainder are ephemeral *.dynamic-env.healthy.io CI hosts)
+  no_pointer_emitted:
+  - WellKnown
+  - SecurityTxt
+  no_pointer_reason: >-
+    A pointer asserts the provider SERVES that surface. Every probe here recorded an absence,
+    so emitting either pointer would turn a documented absence into a scored presence.

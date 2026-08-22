@@ -1,0 +1,93 @@
+generated: '2026-08-22'
+method: searched
+source: >-
+  probes of healthy.io, status.healthy.io, docs.healthy.io and the healthy.io sitemap;
+  no OpenAPI exists in this repo, so nothing here is derived from a spec
+note: >-
+  Healthy.io publishes no versioning policy, no deprecation policy, no changelog and no
+  publicly readable status page. It DOES operate a status host and a docs host, but both sit
+  behind the same Cloudflare Access SSO wall, so neither is readable by the public or by an
+  agent. No StatusPage and no Deprecation pointer is emitted - see the reasoning under each
+  entry.
+status_page:
+  present: true
+  public: false
+  url: https://status.healthy.io
+  status: 200
+  gated: true
+  gate: Cloudflare Access (healthyio.cloudflareaccess.com SSO)
+  evidence: >-
+    GET https://status.healthy.io returns 200 only after following a redirect to
+    healthyio.cloudflareaccess.com/cdn-cgi/access/login/status.healthy.io; the body served is
+    the "Sign in - Cloudflare Access" page. The Statuspage API path /api/v2/summary.json
+    returns 302 to the same login. healthyio.statuspage.io resolves but serves Atlassian's own
+    marketing page, not a Healthy.io status page.
+  pointer_emitted: false
+  pointer_reason: >-
+    A StatusPage pointer asserts that the provider publishes operational status a reader can
+    check. This one cannot be read without a Healthy.io identity, so the pointer would claim a
+    public surface that does not exist. Recorded as a gated presence instead.
+deprecation_policy:
+  present: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  rfc8594: false
+  evidence: >-
+    No deprecation, sunset, versioning or API lifecycle page exists on healthy.io. Probed
+    /changelog, /developers, /developer, /api, /partners, /integrations - all 404. RFC 8594
+    Sunset/Deprecation header behaviour cannot be observed because no public API endpoint
+    exists to observe.
+  pointer_emitted: false
+versioning:
+  policy: null
+  scheme: null
+  evidence: no published versioning policy
+changelog:
+  present: false
+  evidence: 'https://healthy.io/changelog -> 404; no dated changelog anywhere in the sitemap'
+blog:
+  present: false
+  url: https://blog.healthy.io
+  status: 500
+  evidence: >-
+    The footer of healthy.io links to https://blog.healthy.io, which returns HTTP 500. The blog
+    host is broken, so no Blog pointer is emitted - a pointer to a 500 is a dead claim we would
+    be making on the company's behalf. This is a concrete, fixable defect worth reporting to
+    the provider.
+sla:
+  published: false
+  related_commitments:
+  - topic: business continuity
+    url: https://healthy.io/trust-center/availability/business-continuity
+    status: 200
+  - topic: disaster recovery
+    url: https://healthy.io/trust-center/availability/disaster-recovery
+    status: 200
+  - topic: data backups
+    url: https://healthy.io/trust-center/availability/data-backups
+    status: 200
+  - topic: data retention
+    url: https://healthy.io/trust-center/availability/data-retention
+    status: 200
+  - topic: data center location
+    url: https://healthy.io/trust-center/availability/data-center-location
+    status: 200
+  note: >-
+    No numeric uptime SLA is published. The trust center's Availability section documents
+    continuity and recovery practice qualitatively, certified against ISO 22301:2019, but
+    states no availability percentage or credit regime.
+deprecated_operations: []
+x-evidence:
+  fetched: '2026-08-22'
+  probes:
+  - url: https://status.healthy.io
+    status: 200
+    note: redirects to Cloudflare Access login
+  - url: https://status.healthy.io/api/v2/summary.json
+    status: 302
+  - url: https://healthy.io/changelog
+    status: 404
+  - url: https://blog.healthy.io
+    status: 500
+  - url: https://healthy.io/status
+    status: 404

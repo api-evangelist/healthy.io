@@ -1,0 +1,30 @@
+generated: '2026-08-22'
+method: searched
+source: https://healthy.io/ and https://healthy.io/contact-us/
+plan_count: 0
+plans: []
+note: >-
+  Healthy.io publishes NO pricing of any kind - no plans, no tiers, no rate card, no
+  "contact sales for pricing" pricing page. Probed /pricing, /pricing/, /plans on healthy.io:
+  all 404. This is expected for the business model rather than an omission: Healthy.io sells
+  FDA-cleared diagnostic services to health systems, provider groups and payers under
+  negotiated contracts, and the patient never transacts with Healthy.io directly. The only
+  commercial entry point published is the general contact form.
+commercial_model:
+  type: enterprise-contract
+  buyer: health systems, provider groups, payers (incl. Medicare Advantage and nonprofit health plans)
+  self_serve: false
+  public_signup: false
+  entry_point:
+    url: https://healthy.io/contact-us/
+    status: 200
+    kind: general contact form
+x-evidence:
+  fetched: '2026-08-22'
+  probes:
+  - url: https://healthy.io/pricing
+    status: 404
+  - url: https://healthy.io/plans
+    status: 404
+  - url: https://healthy.io/contact-us/
+    status: 200

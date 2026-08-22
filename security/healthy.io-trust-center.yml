@@ -1,0 +1,166 @@
+generated: '2026-08-22'
+method: searched
+source: https://healthy.io/trust-center/
+name: Healthy.io Trust Center
+trust_center:
+  url: https://healthy.io/trust-center/
+  status: 200
+  hosted: first-party
+  platform: self-hosted (healthy.io/trust-center/*, indexed in the site sitemap)
+  gated: false
+  note: >-
+    Healthy.io publishes a first-party trust center on its own domain with 60+ individually
+    addressable, crawlable pages across four sections - Security, Privacy, Compliance and
+    Availability. Every page probed returned HTTP 200 with no login, form or NDA. This is the
+    single richest public machine-reachable surface the company publishes; it is substantially
+    more detailed than the trust page of most companies of this size.
+sections:
+- name: Security
+  url: https://healthy.io/trust-center/security
+  status: 200
+  topics:
+  - access control
+  - asset management
+  - background checks
+  - configuration management
+  - data disposal
+  - emergency changes
+  - encryption at rest
+  - encryption in transit
+  - endpoint security
+  - incident response
+  - information protection program
+  - logs
+  - mobile device security
+  - network protection
+  - password management
+  - penetration test
+  - physical security
+  - portable media security
+  - privileged account monitoring
+  - reporting suspected vulnerabilities
+  - risk management
+  - secure SDLC
+  - security awareness program
+  - security team
+  - third parties insurance
+  - transmission protection
+  - vulnerability management
+  - wireless security
+- name: Privacy
+  url: https://healthy.io/trust-center/privacy
+  status: 200
+  topics:
+  - data retention
+  - GDPR
+  - government request
+  - HIPAA
+  - Healthy.io privacy policy
+- name: Compliance
+  url: https://healthy.io/trust-center/compliance
+  status: 200
+  topics:
+  - anti-kickback and Stark laws
+  - business continuity
+  - certifications
+  - data breach notification
+  - DTAC
+  - FDA
+  - GDPR
+  - government request
+  - HIPAA
+  - HITRUST
+  - ISO 22301:2019
+  - ISO 27001:2013
+  - medical devices quality management systems
+  - NHS Data Security and Protection Toolkit
+  - UK Cyber Essentials
+- name: Availability
+  url: https://healthy.io/trust-center/availability
+  status: 200
+  topics:
+  - business continuity
+  - certifications
+  - data backups
+  - data center location
+  - data retention
+  - disaster recovery
+  - information security and privacy policy statement
+  - ISO 22301:2019
+certifications:
+- name: ISO/IEC 27001:2013
+  category: information security management
+  url: https://healthy.io/trust-center/compliance/iso-27001-2013
+  status: 200
+  evidence: named on the trust center certifications page
+- name: ISO 22301:2019
+  category: business continuity management
+  url: https://healthy.io/trust-center/compliance/iso-22301-2019
+  status: 200
+  evidence: named on the trust center certifications page
+- name: ISO 13485:2016
+  category: medical devices quality management systems
+  url: https://healthy.io/trust-center/compliance/medical-devices-quality-management-systems-requirements-for-regulatory-purposes
+  status: 200
+  evidence: >-
+    named verbatim as "Medical devices - Quality management systems - Requirements for
+    regulatory purposes" on the trust center
+- name: HITRUST
+  category: healthcare security framework
+  url: https://healthy.io/trust-center/compliance/hitrust
+  status: 200
+  evidence: HITRUST Validated Assessment Report named on the certifications page; scope not stated
+- name: UK Cyber Essentials
+  category: UK government cyber baseline
+  url: https://healthy.io/trust-center/compliance/uk-cyber-essentials
+  status: 200
+  evidence: certificate dated 2022-2023 on the certifications page
+- name: NHS Data Security and Protection Toolkit
+  category: UK NHS data security
+  url: https://healthy.io/trust-center/compliance/nhs-data-security-and-protection-toolkit
+  status: 200
+  evidence: 2022-23 version, "standards met"
+regulatory_programs:
+- name: HIPAA
+  url: https://healthy.io/trust-center/compliance/hipaa
+  status: 200
+- name: GDPR
+  url: https://healthy.io/trust-center/compliance/gdpr
+  status: 200
+- name: FDA
+  url: https://healthy.io/trust-center/compliance/fda
+  status: 200
+  note: Minuteful Kidney holds FDA 510(k) clearance for home use
+- name: NHS DTAC (Digital Technology Assessment Criteria)
+  url: https://healthy.io/trust-center/compliance/dtac
+  status: 200
+- name: Anti-Kickback Statute and Stark Law
+  url: https://healthy.io/trust-center/compliance/anti-kickback-and-stark-laws
+  status: 200
+- name: Data breach notification
+  url: https://healthy.io/trust-center/compliance/data-breach-notification
+  status: 200
+gaps:
+- >-
+  Certification currency is not machine-readable: the UK Cyber Essentials certificate is dated
+  2022-2023 and the NHS DSPT entry is the 2022-23 version, with no stated renewal date on the
+  page. A reader cannot tell from the trust center whether these are current.
+- >-
+  No SOC 2 report is named anywhere on the trust center - notable for a US-market health
+  vendor selling to health systems and payers.
+- >-
+  There is no machine-readable index of the trust center (no JSON, no .well-known/api-catalog);
+  the only crawlable index is the HTML sitemap at https://healthy.io/sitemap.xml.
+x-evidence:
+  fetched: '2026-08-22'
+  probes:
+  - url: https://healthy.io/trust-center/
+    status: 200
+  - url: https://healthy.io/trust-center/compliance/certifications
+    status: 200
+  - url: https://healthy.io/trust-center/security
+    status: 200
+  - url: https://healthy.io/trust-center/privacy
+    status: 200
+  - url: https://healthy.io/trust-center/availability
+    status: 200

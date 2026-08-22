@@ -1,0 +1,85 @@
+generated: '2026-08-22'
+method: searched
+source: >-
+  https://github.com/HealthyIO plus registry queries against npm, PyPI, Maven Central,
+  RubyGems, crates.io, NuGet, pkg.go.dev, Packagist and JitPack
+sdk_count: 0
+package_count: 1
+note: >-
+  Healthy.io publishes NO API client SDK in any language, because it publishes no public API.
+  It does operate a first-party GitHub organization (github.com/HealthyIO, "Open source
+  projects by Healthy.io developers", blog https://healthy.io) with exactly one public
+  repository - an Android UI library unrelated to any Healthy.io service. It is recorded below
+  because it is genuinely first-party and genuinely distributed, but it is NOT an API client
+  library, so NO `SDKs` pointer is emitted in apis.yml and sdk_count stays 0. Emitting `SDKs`
+  here would credit the company with client libraries for an API it does not publish.
+packages:
+- language: kotlin
+  platform: android
+  registry: jitpack
+  name: com.github.HealthyIO:Ultimate-Multitouch
+  url: https://github.com/HealthyIO/Ultimate-Multitouch
+  registry_url: https://jitpack.io/#HealthyIO/Ultimate-Multitouch
+  install: 'implementation ''com.github.HealthyIO:Ultimate-Multitouch:1.0.1'''
+  official: true
+  is_api_client: false
+  kind: ui-library
+  description: >-
+    "A powerful, easy to use, multifunctional & highly-customizable multi-touch library for
+    Android" (verbatim from the repository README). Minimum Android API level 16.
+  license: Apache-2.0
+  version: 1.0.1
+  published: '2022-08-31'
+  version_source: >-
+    GitHub releases API (tag 1.0.1 published 2022-08-31T12:37:14Z) cross-checked against the
+    JitPack builds API, which reports 1.0.0 and 1.0.1 both built "ok".
+  stars: 0
+  last_commit: '2022-08-31'
+  archived: false
+  decay_signal: >-
+    Last release 2022-08-31, last push 2022-08-31, zero stars. Effectively unmaintained for
+    four years. As an abandonment signal this says something about the company's open-source
+    posture, not about any API, since no API exists to be wrapped.
+registries_checked:
+- registry: npm
+  query: healthy.io
+  result: no first-party package
+  endpoint: https://registry.npmjs.org/-/v1/search?text=healthy.io
+- registry: pypi
+  query: healthyio
+  result: 404 - absent
+  endpoint: https://pypi.org/pypi/healthyio/json
+- registry: maven-central
+  query: healthy.io
+  result: numFound 0
+  endpoint: https://search.maven.org/solrsearch/select?q=healthy.io
+- registry: jitpack
+  query: com.github.HealthyIO/Ultimate-Multitouch
+  result: 'HIT - versions 1.0.0 and 1.0.1, both "ok"'
+  endpoint: https://jitpack.io/api/builds/com.github.HealthyIO/Ultimate-Multitouch
+- registry: rubygems
+  result: no first-party package
+- registry: crates.io
+  result: no first-party package
+- registry: nuget
+  result: no first-party package
+- registry: pkg.go.dev
+  result: no first-party package
+- registry: packagist
+  result: no first-party package
+x-evidence:
+  fetched: '2026-08-22'
+  probes:
+  - url: https://api.github.com/orgs/HealthyIO
+    status: 200
+  - url: https://api.github.com/orgs/HealthyIO/repos
+    status: 200
+  - url: https://jitpack.io/api/builds/com.github.HealthyIO/Ultimate-Multitouch
+    status: 200
+  - url: https://pypi.org/pypi/healthyio/json
+    status: 404
+  no_pointer_emitted:
+  - SDKs
+  no_pointer_reason: >-
+    sdk_count measures API client libraries. The one first-party package is an Android
+    multi-touch UI library, not a client for any Healthy.io service.

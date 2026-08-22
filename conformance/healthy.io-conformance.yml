@@ -1,0 +1,212 @@
+generated: '2026-08-22'
+method: searched
+source: >-
+  https://healthy.io/trust-center/compliance/certifications and https://healthy.io/ - no
+  machine-readable contract (OpenAPI/AsyncAPI/GraphQL SDL/WSDL/proto) is published by this
+  provider, so every entry below is asserted from published prose, never derived from a spec.
+note: >-
+  Healthy.io publishes NO machine-readable API contract. That means the 0.12.0
+  domain_standard_conformance check - which reads the CONTRACT, not a marketing page - cannot
+  fire for this provider, even though the company advertises SMART on FHIR support. The
+  SMART on FHIR entry below is recorded with conforms:false precisely for that reason: the
+  claim is real and first-party, but it is unverifiable without a published FHIR
+  CapabilityStatement or an accessible reference.
+conformance:
+- id: hipaa
+  name: HIPAA (Health Insurance Portability and Accountability Act)
+  category: regulatory
+  conforms: true
+  evidence:
+    type: published-policy
+    url: https://healthy.io/trust-center/compliance/hipaa
+    status: 200
+    note: dedicated HIPAA page in the public trust center; also covered under trust-center/privacy/hipaa
+- id: gdpr
+  name: GDPR (EU General Data Protection Regulation)
+  category: regulatory
+  conforms: true
+  evidence:
+    type: published-policy
+    url: https://healthy.io/trust-center/compliance/gdpr
+    status: 200
+- id: fda-510k
+  name: FDA 510(k) clearance
+  category: regulatory
+  conforms: true
+  evidence:
+    type: published-claim
+    url: https://healthy.io/trust-center/compliance/fda
+    status: 200
+    note: >-
+      Minuteful Kidney received FDA 510(k) clearance for home use; homepage states products are
+      "FDA cleared & CE marked".
+- id: iso-27001
+  name: ISO/IEC 27001:2013 Information Security Management
+  category: security-certification
+  conforms: true
+  evidence:
+    type: certification
+    url: https://healthy.io/trust-center/compliance/iso-27001-2013
+    status: 200
+- id: iso-22301
+  name: ISO 22301:2019 Business Continuity Management
+  category: operational-certification
+  conforms: true
+  evidence:
+    type: certification
+    url: https://healthy.io/trust-center/compliance/iso-22301-2019
+    status: 200
+- id: iso-13485
+  name: ISO 13485:2016 Medical Devices Quality Management Systems
+  category: domain-certification
+  conforms: true
+  evidence:
+    type: certification
+    url: https://healthy.io/trust-center/compliance/medical-devices-quality-management-systems-requirements-for-regulatory-purposes
+    status: 200
+- id: hitrust
+  name: HITRUST Validated Assessment
+  category: healthcare-security-framework
+  conforms: true
+  evidence:
+    type: certification
+    url: https://healthy.io/trust-center/compliance/hitrust
+    status: 200
+    note: scope of the validated assessment is not stated on the page
+- id: nhs-dspt
+  name: NHS Data Security and Protection Toolkit
+  category: regional-regulatory
+  conforms: true
+  evidence:
+    type: attestation
+    url: https://healthy.io/trust-center/compliance/nhs-data-security-and-protection-toolkit
+    status: 200
+    note: 2022-23 version, "standards met"; no later version published
+- id: uk-cyber-essentials
+  name: UK Cyber Essentials
+  category: security-certification
+  conforms: true
+  evidence:
+    type: certification
+    url: https://healthy.io/trust-center/compliance/uk-cyber-essentials
+    status: 200
+    note: certificate dated 2022-2023; currency not stated
+- id: nhs-dtac
+  name: NHS Digital Technology Assessment Criteria (DTAC)
+  category: regional-regulatory
+  conforms: true
+  evidence:
+    type: published-policy
+    url: https://healthy.io/trust-center/compliance/dtac
+    status: 200
+- id: cvd-rfc-aligned
+  name: Coordinated vulnerability disclosure
+  category: security-practice
+  conforms: true
+  evidence:
+    type: published-policy
+    url: https://healthy.io/trust-center/security/reporting-suspected-vulnerabilities
+    status: 200
+    note: >-
+      24h non-automated acknowledgement, five-working-day progress updates, CVSS 2.0 scoring,
+      coordinated public notification. Not advertised via RFC 9116 security.txt (404).
+- id: soc2
+  name: SOC 2
+  category: security-attestation
+  conforms: false
+  evidence:
+    type: absent
+    url: https://healthy.io/trust-center/compliance/certifications
+    status: 200
+    note: >-
+      No SOC 2 Type I or Type II report is named anywhere on the trust center. Recorded as an
+      honest absence, not a failure.
+domain_standards:
+- id: smart-on-fhir
+  name: SMART on FHIR / HL7 FHIR
+  category: domain-standard
+  market: healthcare interoperability
+  claimed: true
+  conforms: false
+  evidence:
+    type: marketing-prose
+    url: https://healthy.io/
+    status: 200
+    quote: >-
+      "Our technology can be seamlessly integrated into most EMRs SMART on FHIR" (homepage,
+      Flexible section)
+    note: >-
+      REWARD WITHHELD DELIBERATELY. The 0.12.0 domain_standard_conformance check reads the
+      contract - a FHIR CapabilityStatement, a SMART /.well-known/smart-configuration, an
+      OperationDefinition, a resource profile URI. None is published. Probed
+      healthy.io/.well-known/smart-configuration and every well-known path on healthy.io,
+      direct.healthy.io and minuteful.com: all 404. This is a first-party claim we could not
+      verify from any machine-readable artifact, so conforms is false. If Healthy.io publishes
+      a CapabilityStatement or a public FHIR endpoint, this becomes conforms:true and is worth
+      4 points under contract_quality.
+- id: direct-secure-messaging
+  name: Direct Secure Messaging (DirectTrust / HL7 Direct Project)
+  category: domain-standard
+  market: healthcare interoperability
+  claimed: inferred
+  conforms: false
+  evidence:
+    type: probed-surface
+    url: https://direct.healthy.io/
+    status: 200
+    note: >-
+      direct.healthy.io serves a React single-page application whose document title is
+      "Direct Messaging Portal" with a /portal base href and an identity login placeholder.
+      That is consistent with a Direct Secure Messaging surface for delivering results to
+      provider systems, but the application is login-gated and the company publishes no
+      documentation naming the standard, so this is recorded as an unverified lead rather than
+      a conformance. NOT scored.
+api_conformance:
+  note: >-
+    No OpenAPI, AsyncAPI, GraphQL SDL, WSDL, Protobuf or JSON Schema is published by this
+    provider. The following cross-cutting API standards could therefore not be assessed and are
+    recorded as not-applicable rather than false.
+  assessed: false
+  standards:
+  - id: oauth2
+    conforms: null
+    reason: no published contract or auth documentation
+  - id: oidc
+    conforms: null
+    reason: no /.well-known/openid-configuration served (404 on every host probed)
+  - id: rfc9457
+    conforms: null
+    reason: no published contract
+  - id: rfc9116
+    name: security.txt
+    conforms: false
+    reason: >-
+      A coordinated disclosure policy exists but is not advertised at
+      /.well-known/security.txt (404 on healthy.io, direct.healthy.io, minuteful.com).
+x-evidence:
+  fetched: '2026-08-22'
+  probes:
+  - url: https://healthy.io/trust-center/compliance/certifications
+    status: 200
+  - url: https://healthy.io/
+    status: 200
+  - url: https://direct.healthy.io/
+    status: 200
+  - url: https://healthy.io/.well-known/openid-configuration
+    status: 404
+  - url: https://healthy.io/.well-known/security.txt
+    status: 404
+  - url: https://healthy.io/.well-known/smart-configuration
+    status: 404
+  - url: https://healthy.io/fhir/metadata
+    status: 404
+  - url: https://healthy.io/metadata
+    status: 404
+  - url: https://direct.healthy.io/.well-known/smart-configuration
+    status: 404
+  - url: https://direct.healthy.io/fhir/metadata
+    status: 404
+  - url: https://minuteful.com/.well-known/smart-configuration
+    status: 404
+  - url: https://minuteful.com/fhir/metadata
+    status: 404
