@@ -52,7 +52,7 @@ tags:
 - Urinalysis
 - Kidney Care
 - Wound Care
-- Computer-Vision
+- Computer Vision
 - Remote Patient Monitoring
 - Telehealth
 - SMART on FHIR
@@ -72,6 +72,7 @@ tags_raw:
 - Telehealth
 - SMART on FHIR
 - HIPAA
+- Computer-Vision
 apis: []
 maintainers:
 - FN: Kin Lane
