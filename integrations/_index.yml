@@ -41,3 +41,113 @@
       P856 not contradicting (Kin 2026-10-20 decision 2)
   status: not-a-workflow
   arazzo: null
+- slug: healthy.io-fda-510-k-premarket-notifications-ivd-surgical-panels
+  label: FDA 510(k) premarket notifications (IVD / surgical panels)
+  partner_name: FDA 510(k) premarket notifications (IVD / surgical panels)
+  category: FDA-cleared IVD / surgical device
+  type: contract
+  channel: regulator-register
+  evidence: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K222921
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: openFDA device/510k (decision_date >= 2016-01-01; panels CH HE IM MI PA TX SU OR)
+    standard: FDA 510(k) premarket clearance (IVD / surgical panels)
+    spec_file: null
+    role: fda-510k-holder
+    registered_name: Healthy.Io, Ltd.
+    matched_domain: null
+    matched_by: register-name
+    detected_by: sweep-ivd-diagnostics.py
+    detected: '2026-10-21'
+    register_id: K222921
+    certified_products:
+    - product: FDA 510(k) clearance, Clinical Chemistry panel
+      product_type: Clinical Chemistry
+      review_panel: CH
+      lapsed: false
+      latest_decision: '2023-09-08'
+      devices_sample:
+      - ACR  LAB Urine Analysis Test System
+      - DIP/U.S. Urine Analysis Test System
+      - Minuteful - kidney test
+      - Minuteful-kidney test
+    signal_note: certified_products = one entry per FDA review PANEL held, never per device; openFDA carries decisions,
+      not withdrawals, so lapsed is always false
+    register_name_note: register-name 'healthyio' = healthy.io; no wikidata P856
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  status: not-a-workflow
+  arazzo: null
+- slug: healthy.io-fda-establishment-registration-and-device-listing-ivd-surgical-specialties
+  label: FDA establishment registration and device listing (IVD / surgical specialties)
+  partner_name: FDA establishment registration and device listing (IVD / surgical specialties)
+  category: FDA-registered device establishment
+  type: contract
+  channel: regulator-register
+  evidence: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: openFDA device/registrationlisting (owner/operator, device listings by medical specialty)
+    standard: FDA establishment registration and device listing (21 CFR 807)
+    spec_file: null
+    role: fda-registered-owner-operator
+    registered_name: Healthy.io Ltd.
+    matched_domain: null
+    matched_by: register-name
+    detected_by: sweep-ivd-diagnostics.py
+    detected: '2026-10-21'
+    listed_specialties:
+    - Clinical Chemistry
+    signal_note: 'REGULATED through the establishment registration: a registration is not a clearance, so no certified_products;
+      specialties are context, never counted'
+    register_name_note: register-name 'healthyio' = healthy.io; no wikidata P856
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  status: not-a-workflow
+  arazzo: null
+- slug: healthy.io-fda-clia-test-categorizations
+  label: FDA CLIA test categorizations
+  partner_name: FDA CLIA test categorizations
+  category: CLIA-categorized test system maker
+  type: contract
+  channel: regulator-register
+  evidence: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfClia/search.cfm
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: FDA CLIA test categorization database (clia_detail.zip)
+    standard: FDA CLIA categorization
+    spec_file: null
+    role: clia-categorized-test-system-maker
+    registered_name: Healthy.io Ltd.
+    matched_domain: null
+    matched_by: register-name
+    detected_by: sweep-ivd-diagnostics.py
+    detected: '2026-10-21'
+    register_id: CR210004
+    certified_products:
+    - product: FDA CLIA categorization, moderate complexity
+      product_type: moderate
+      lapsed: false
+      latest_effective: 2019/09/23
+      test_systems_sample:
+      - Healthy.io Ltd., ACR / LAB Urine Analysis Test System
+    - product: FDA CLIA categorization, waived complexity
+      product_type: waived
+      lapsed: false
+      latest_effective: 2022/07/12
+      test_systems_sample:
+      - Healthy.io Ltd., DIP/U.S. Urine Analysis Test System
+      - Healthy.io Ltd., Minuteful - kidney test
+    signal_note: 'certified_products = one entry per CLIA COMPLEXITY held (waived / moderate / high), never per
+      test system; the database lists categorizations, not withdrawals: lapsed false'
+    register_name_note: register-name 'healthyio' = healthy.io; no wikidata P856
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  status: not-a-workflow
+  arazzo: null
